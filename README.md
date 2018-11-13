@@ -37,6 +37,8 @@ Your first CNN on CIFAR-10
 ```
 docker run -it -p 8882:8080 --name coursera-aml-1 zimovnov/coursera-aml-docker
 ```
+Add `-p 7007:7007` if wanting to access Tensorflow dashboard.
+
 2. Or buid it from the Dockerfile at folder ``coursera-aml-docker``:
 ```
 docker build -t brjapon/coursera-aml-docker .
@@ -74,7 +76,7 @@ You can make sure that it's saved by running docker images.
 Creating new container from previous checkpoint
 If you want to continue working from a particular checkpoint, you should run a new container from your saved image by executing
 
-``docker run -it -p 127.0.0.1:8080:8080 -p 127.0.0.1:7007:7007 --name coursera-aml-2 coursera-aml-snap-1``
+``docker run -it -p 8882:8080 -p 7007:7007 --name coursera-aml-2 coursera-aml-snap-1``
 
 Notice that we incremented index in the container name, because we created a new container.
 
