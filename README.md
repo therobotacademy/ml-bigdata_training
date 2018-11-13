@@ -16,7 +16,6 @@ docker run -it -p 8880:8888 --name spark_8880 bigdatateam/spark-course1
 To SSH into the container: `$ docker exec -it spark_8880 bash`
 
 
-
 # 2. [Big Data Applications: Machine Learning at Scale](https://www.coursera.org/learn/machine-learning-applications-big-data) by Yandex
 [Docker container Spark course 3](https://hub.docker.com/r/bigdatateam/spark-course3/): ``spark-course1``
 
@@ -24,9 +23,8 @@ To SSH into the container: `$ docker exec -it spark_8880 bash`
 # 3. [Introduction to Deep Learning](https://www.coursera.org/learn/intro-to-deep-learning) por National Research University Higher School of Economics
 https://github.com/hse-aml/intro-to-dl
 ### _________________________________ at folder ``intro-to-dl``
-https://github.com/romeokienzler/CognitiveIoT
 
-[Docker container with Jupyter Environment](https://hub.docker.com/r/zimovnov/coursera-aml-docker/): ``coursera-aml-docker``
+[Docker container with Jupyter Environment](https://hub.docker.com/r/zimovnov/coursera-aml-docker/): ``coursera-aml-docker`` with source repository https://github.com/ZEMUSHKA/coursera-aml-docker
 
 Week 3:
 -------
@@ -35,12 +33,31 @@ Week 3:
 
 Your first CNN on CIFAR-10
 --------------------------
-Follow the instructions on https://hub.docker.com/r/zimovnov/coursera-aml-docker/ to install Docker container with all necessary software installed.
+1. Follow the instructions on https://hub.docker.com/r/zimovnov/coursera-aml-docker/ to install Docker container with all necessary software installed. After that you should see a Jupyter page in your browser.
+```
+docker run -it -p 8882:8080 --name coursera-aml-1 zimovnov/coursera-aml-docker
+```
+2. Or buid it from the Dockerfile at folder ``coursera-aml-docker``:
+```
+docker build -t brjapon/coursera-aml-docker .
+docker run -it -p 8882:8080 --name coursera-aml-10 brjapon/coursera-aml-docker
+```
 
-After that you should see a Jupyter page in your browser.
+3. SSH into the container and clone the repo with the exercises:
+
 ```
-docker run -it -p 8080:8882 --name coursera-aml-1 zimovnov/coursera-aml-docker
+docker exec -it coursera-aml-1 bash
+git clone https://github.com/hse-aml/intro-to-dl
 ```
+4. Download **Keras and week 3 resources**, by executing the required lines in notebook `./intro-to-dl/download_resources.ipynb`
+
+5. Run notebook Task 1
+   
+    `./intro-to-dl/week3/week3_task1_first_cnn_cifar10_clean.ipynb`
+
+6. Run notebook Task 2
+   
+   `./intro-to-dl/week3/week3_task2_fine_tuning_clean.ipynb`
 
 #### Container checkpoints
 You might want to make a checkpoint of your work so that you can return to it later.
@@ -85,3 +102,4 @@ https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/docker
 
 https://github.com/romeokienzler/developerWorks
 ### _________________________________ at folder ``developerWorks``
+https://github.com/romeokienzler/CognitiveIoT
