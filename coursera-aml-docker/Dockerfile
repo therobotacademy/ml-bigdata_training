@@ -14,6 +14,8 @@ RUN pip3 install -r requirements.txt
 # Add Jupyter Notebooks of Coursera exercises
 WORKDIR /root
 ADD ../intro-to-dl ./
+# Or download it from Github
+#RUN git clone https://github.com/hse-aml/intro-to-dl
 
 # setup juptyer
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
